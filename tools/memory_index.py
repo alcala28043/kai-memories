@@ -34,3 +34,7 @@ def index_memory(request=None):
         json.dump(index, f, indent=2, ensure_ascii=False)
 
     return {"status": "ok", "indexed_files": len(index)}
+
+if __name__ == "__main__":
+    result = index_memory()
+    print(result)

@@ -42,3 +42,20 @@ def search_memory(request):
                 break
 
     return {"results": results}
+
+if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) < 2:
+        print("Uso: python3 memory_search.py <query> [max_results]")
+        exit(1)
+
+    query = sys.argv[1]
+    max_results = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+
+    result = search_memory({
+        "query": query,
+        "max_results": max_results
+    })
+
+    print(json.dumps(result, indent=2, ensure_ascii=False))

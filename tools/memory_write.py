@@ -55,3 +55,20 @@ def write_memory(request):
         f.write(content + "\n")
 
     return {"status": "ok", "path": full_path}
+
+if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) < 3:
+        print("Uso: python3 memory_write.py <relative_path> <content>")
+        exit(1)
+
+    relative_path = sys.argv[1]
+    content = sys.argv[2]
+
+    result = write_memory({
+        "relative_path": relative_path,
+        "content": content
+    })
+
+    print(result)
